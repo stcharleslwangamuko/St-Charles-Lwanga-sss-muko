@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,34 +13,52 @@
 </head>
 
 <body>
+  <div class="announcement">
+    <marquee>
+        📢 Admissions for 2026 are now open | UNEB Registration Ongoing | School Visitation Day Coming Soon
+    </marquee>
+</div>
   <header>
-  <div class="header-container">
+
+<div class="header-container">
 
     <div class="logo-area">
-      <img src="lwangalogo.jpeg" alt="School Logo">
-      <h1>ST.CHARLES LWANGA SSS MUKO</h1>
+        <img src="lwangalogo.webp" alt="School Logo">
+        <h1>ST. CHARLES LWANGA SSS MUKO</h1>
     </div>
 
-    <div class="header-right">
-      <input type="text" placeholder="Search..." class="search-box">
-      <button class="search-btn">Search</button>
+    <div class="header-actions">
 
-      <div class="menu-toggle" onclick="toggleMenu()">
-        ☰
-      </div>
+        <div class="search-container">
+            <button id="searchBtn">🔍</button>
+
+            <div id="searchBox" class="hidden">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button id="runSearch">Go</button>
+            </div>
+        </div>
+
+        <button class="menu-toggle" id="menuBtn">
+            ☰
+        </button>
+
     </div>
 
-  </div>
+</div>
 
-  <ul id="nav-list">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="academics.html">Academics</a></li>
-    <li><a href="enrollment.html">Enrollment</a></li>
-    <li><a href="cocurricular.html">Co-curricular</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+<nav>
+    <ul id="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="admission.html">Admission</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
 </header>
+  
 <section id="teachers">
 
 <h2>Teachers</h2>
