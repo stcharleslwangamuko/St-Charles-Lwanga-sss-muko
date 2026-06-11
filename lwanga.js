@@ -1,152 +1,147 @@
-// ===== WAIT FOR PAGE LOAD =====
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function(){
 
-  // ===== MENU TOGGLE =====
-  function toggleMenu() {
-    const nav = document.getElementById("nav-list");
-    if (nav) nav.classList.toggle("show");
-  }
+    /* =====================
+       SEARCH FUNCTION
+    ====================== */
 
-  // make toggleMenu global (for onclick)
-  window.toggleMenu = toggleMenu;
+    const searchBtn = document.getElementById("searchBtn");
+    const searchBox = document.getElementById("searchBox");
 
-  // CLOSE MENU WHEN LINK CLICKED
-  const navLinks = document.querySelectorAll("#nav-list li a");
-  navLinks.forEach(link => {
-    link.addEventListener("click", function () {
-      const nav = document.getElementById("nav-list");
-      if (nav) nav.classList.remove("show");
-    });
-  });
+    if(searchBtn && searchBox){
+        searchBtn.addEventListener("click", function(){
+            searchBox.classList.toggle("hidden");
+        });
+    }
 
-  // ===== SLIDER =====
-  const slides = document.querySelector(".slides");
-  const images = document.querySelectorAll(".slides img");
-  const nextBtn = document.querySelector(".next");
-  const prevBtn = document.querySelector(".prev");
+    const runSearch = document.getElementById("runSearch");
+    const searchInput = document.getElementById("searchInput");
 
-  // safety check (prevents crash)
-  if (!slides || images.length === 0) {
-    console.log("Slider not found");
-    return;
-  }
+    function searchSite(){
 
-  let index = 0;
-  let autoSlide;
+        const keyword = searchInput.value.toLowerCase().trim();
 
-  function showSlide() {
-    slides.style.transform = "translateX(-" + (index * 100) + "%)";
-  }
+        if(keyword === ""){
+            alert("Please enter a search term");
+            return;
+        }
 
-  function nextSlide() {
-    index = (index + 1) % images.length;
-    showSlide();
-  }
+        const sections = document.querySelectorAll("section");
 
-  function prevSlide() {
-    index = (index - 1 + images.length) % images.length;
-    showSlide();
-  }
+        let found = false;
 
-  function startAutoSlide() {
-    autoSlide = setInterval(nextSlide, 4000); // slower = better control
-  }
+        sections.forEach(section => {
 
-  function resetAuto() {
-    clearInterval(autoSlide);
-    startAutoSlide();
-  }
+            section.style.backgroundColor = "";
 
-  // ===== BUTTON EVENTS (SAFE) =====
-  if (nextBtn) {
-    nextBtn.addEventListener("click", function () {
-      nextSlide();
-      resetAuto();
-    });
-  }
+            if(section.textContent.toLowerCase().includes(keyword) && !found){
 
-  if (prevBtn) {
-    prevBtn.addEventListener("click", function () {
-      prevSlide();
-      resetAuto();
-    });
-  }
+                section.scrollIntoView({
+                    behavior:"smooth",
+                    block:"center"
+                });
 
-  startAutoSlide();
+                section.style.backgroundColor = "#fff3a0";
 
-});
-document.getElementById("admissionForm").addEventListener("submit", function(e){
-    e.preventDefault();
+                found = true;
+            }
+        });
 
-    const data = {
-        name: document.getElementById("name").value,
-        dob: document.getElementById("dob").value,
-        school: document.getElementById("school").value,
-        parent: document.getElementById("parent").value,
-        phone: document.getElementById("phone").value
+        if(!found){
+            alert("No results found");
+        }
+    }
+
+    if(runSearch){
+        runSearch.addEventListener("click", searchSite);
+    }
+
+    if(searchInput){
+        searchInput.addEventListener("keypress", function(e){
+            if(e.key === "Enter"){
+                searchSite();
+            }
+        });
+    }
+
+
+    /* =====================
+       HAMBURGER MENU
+    ====================== */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navList = document.getElementById("nav-list");
+
+    if(menuBtn && navList){
+        menuBtn.addEventListener("click", function(){
+            navList.classList.toggle("show");
+        });
+
+        document.querySelectorAll("#nav-list a").forEach(link => {
+            link.addEventListener("click", function(){
+                navList.classList.remove("show");
+            });
+        });
+    }
+
+
+    /* =====================
+       FORM FUNCTION (NEW)
+    ====================== */
+
+    const form = document.getElementById("admissionForm");
+
+    if(form){
+
+        form.addEventListener("submit", function(e){
+            e.preventDefault();
+
+            const name = document.getElementById("name")?.value;
+            const dob = document.getElementById("dob")?.value;
+            const school = document.getElementById("school")?.value;
+            const parent = document.getElementById("parent")?.value;
+            const phone = document.getElementById("phone")?.value;
+
+            const data = {
+                name,
+                dob,
+                school,
+                parent,
+                phone
+            };
+
+            localStorage.setItem("admissionData", JSON.stringify(data));
+
+            const msg = document.getElementById("successMsg");
+            if(msg){
+                msg.innerText = "Application submitted successfully!";
+                msg.style.color = "green";
+            }
+
+            form.reset();
+        });
+    }
+
+
+    /* =====================
+       DOWNLOAD FORM DATA
+    ====================== */
+
+    window.downloadForm = function(){
+
+        const data = localStorage.getItem("admissionData");
+
+        if(!data){
+            alert("No form data found!");
+            return;
+        }
+
+        const blob = new Blob([data], {type:"text/plain"});
+        const link = document.createElement("a");
+
+        link.href = URL.createObjectURL(blob);
+        link.download = "admission-data.txt";
+
+        link.click();
     };
 
-    // Save locally (simple system)
-    localStorage.setItem("admissionData", JSON.stringify(data));
-
-    document.getElementById("successMsg").innerText = 
-        "Application submitted successfully!";
-});
-
-// Download as text file
-function downloadForm(){
-    const data = localStorage.getItem("admissionData");
-
-    if(!data){
-        alert("Fill the form first!");
-        return;
-    }
-
-    const blob = new Blob([data], { type: "text/plain" });
-    const link = document.createElement("a");
-
-    link.href = URL.createObjectURL(blob);
-    link.download = "admission.txt";
-    link.click();
-}
-document.getElementById("admissionForm").addEventListener("submit", function(e){
-    e.preventDefault();
-
-    const params = {
-        name: document.getElementById("name").value,
-        dob: document.getElementById("dob").value,
-        school: document.getElementById("school").value,
-        parent: document.getElementById("parent").value,
-        phone: document.getElementById("phone").value
-    };
-
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
-    .then(function(response) {
-        document.getElementById("successMsg").innerText = 
-            "Application sent successfully!";
-    }, function(error) {
-        document.getElementById("successMsg").innerText = 
-            "Failed to send. Try again.";
-    });
-function searchSite(){
-    let input = document.getElementById("searchInput").value.toLowerCase();
-
-    if(input.includes("library") || input.includes("e-library")){
-        window.location.href = "#elib";
-    }
-    else if(input.includes("results")){
-        window.location.href = "#results";
-    }
-    else if(input.includes("facilities")){
-        window.location.href = "#facilities";
-    }
-    else{
-        alert("No results found");
-    }
-}
-document.getElementById("searchInput").addEventListener("keypress", function(e){
-    if(e.key === "Enter"){
-        searchSite();
-    }
-});
 });

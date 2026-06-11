@@ -13,67 +13,67 @@
 </head>
 
 <body>
+  <div class="announcement">
+    <marquee>
+        📢 Admissions for 2026 are now open | UNEB Registration Ongoing | School Visitation Day Coming Soon
+    </marquee>
+</div>
   <header>
-  <div class="header-container">
+
+<div class="header-container">
 
     <div class="logo-area">
-      <img src="lwangalogo.webp" alt="School Logo">
-      <h1>ST.CHARLES LWANGA SSS MUKO</h1>
+        <img src="lwangalogo.webp" alt="School Logo">
+        <h1>ST. CHARLES LWANGA SSS MUKO</h1>
     </div>
 
-    <div class="header-right">
-      <input type="text" placeholder="Search..." class="search-box">
-      <button class="search-btn" onclick="searchSite()">Search</button>
-      <div class="menu-toggle" onclick="toggleMenu()">
-        ☰
-      </div>
+    <div class="header-actions">
+
+        <div class="search-container">
+            <button id="searchBtn">🔍</button>
+
+            <div id="searchBox" class="hidden">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button id="runSearch">Go</button>
+            </div>
+        </div>
+
+        <button class="menu-toggle" id="menuBtn">
+            ☰
+        </button>
+
     </div>
 
-  </div>
+</div>
 
-  <ul id="nav-list">
-   
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="academics.html">Academics</a></li>
-    <li><a href="enrollment.html">Enrollment</a></li>
-    <li><a href="cocurricular.html">Co-curricular</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
-  </ul>
+<nav>
+    <ul id="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="admission.html">Admission</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
 </header>
-
-<main>
-<!-- SLIDER -->
-<section class="slider">
-
-  <div class="slides">
-    <img src="students.webp">
-    <img src="mainhall.webp">
-    <img src="olevel.webp">
-    <img src="alevel.webp">
-     <img src="studentsasseble.webp">
-    <img src="sports1.webp">
-    <img src="scielab.webp">
-    <img src="sports2.webp">
-     <img src="slide1.webp">
-    <img src="sports3.webp">
-    <img src="slide2.webp">
-    <img src="slide3.webp">
-     <img src="slide4.webp">
-    <img src="slide5.webp">
-    <img src="slide6.webp">
-  </div>
   
 
-  <button class="prev">&#10094;</button>
-  <button class="next">&#10095;</button>
+<section class="hero">
+    <div class="hero-content">
 
-</section>
+        <h3>Welcome to Our Mighty School</h3>
 
+        <h1>ST. CHARLES LWANGA SSS MUKO</h1>
 
-<section class="cta">
-  <h2>Admissions Open</h2>
-<a href="admission.html" class="btn">Apply Now</a>
+        <p>"Intelligence Aims At Wise Action"</p>
+
+        <a href="admission.html" class="hero-btn">
+            Apply Now
+        </a>
+
+    </div>
 </section>
 <section>
   <h2>School Motto</h2>
@@ -231,7 +231,8 @@ The school offers both science and arts combinations.</p>
 
 <button id="topBtn">↑</button>
 <footer>
-<p>© 2026 St Charles Lwanga Muko S.s.s P.O.BOX 742, Kabale, Uganda</p>
+  <p>Located at Muko catholic parish, Muko subcounty Rubanda district <br>P.O.BOX 742, Rubanda-Kabale, Uganda</p>
+<p>© 2026 St Charles Lwanga SSS Muko.All rights reserved</p>
 <p><i>Designed by Tr.ALFRED NABAASA</i></p>
 </footer>
 <script src="lwanga.js"></script>
