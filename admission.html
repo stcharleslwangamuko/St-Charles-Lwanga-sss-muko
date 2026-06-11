@@ -4,86 +4,113 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admission - St. Charles Lwanga SSS Muko</title>
+
 <link rel="stylesheet" href="lwanga.css">
 </head>
 
 <body>
-  <header>
-  <div class="header-container">
+
+<!-- HEADER (same as index) -->
+<header>
+
+<div class="header-container">
 
     <div class="logo-area">
-      <img src="lwangalogo.jpeg" alt="School Logo">
-      <h1>ST.CHARLES LWANGA SSS MUKO</h1>
+        <img src="lwangalogo.webp" alt="School Logo">
+        <h1>ST. CHARLES LWANGA SSS MUKO</h1>
     </div>
 
-    <div class="header-right">
-      <input type="text" placeholder="Search..." class="search-box">
-      <button class="search-btn">Search</button>
+    <div class="header-actions">
 
-      <div class="menu-toggle" onclick="toggleMenu()">
-        ☰
-      </div>
+        <div class="search-container">
+            <button id="searchBtn">🔍</button>
+
+            <div id="searchBox" class="hidden">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button id="runSearch">Go</button>
+            </div>
+        </div>
+
+        <button class="menu-toggle" id="menuBtn">☰</button>
+
     </div>
 
-  </div>
+</div>
 
-  <ul id="nav-list">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="academics.html">Academics</a></li>
-    <li><a href="enrollment.html">Enrollment</a></li>
-    <li><a href="cocurricular.html">Co-curricular</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+<nav>
+    <ul id="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="enrollment.html">Enrollment</a></li>
+        <li><a href="cocurricular.html">Co-curricular</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
 </header>
 
+<!-- PAGE CONTENT -->
 <section class="content">
+
 <h2>Admission Information</h2>
 
-<ul>
-<li>Fill in the admission form</li>
-<li>Attach academic documents</li>
-<li>Submit to school administration</li>
+<ul class="info-list">
+    <li>Fill in the admission form</li>
+    <li>Attach academic documents</li>
+    <li>Submit to school administration</li>
 </ul>
+
+<!-- FORM -->
 <div class="form-container">
+
     <h2>Students Admission Form</h2>
 
     <form id="admissionForm">
-        <input type="text" id="name" placeholder="Full Name" required>
-        <input type="date" id="dob" required>
-        <input type="text" id="school" placeholder="Previous School">
-        <input type="text" id="parent" placeholder="Parent/Guardian Name">
-        <input type="tel" id="phone" placeholder="Phone Number" required>
-            <select>
-      <option>Class Applying</option>
-      <option>S1</option>
-      <option>S2</option>
-            <option>S3</option>
-                  <option>S4</option>
-                      <option>S5</option>
-               <option>S6</option>
-    </select>
 
-        <button type="submit">Submit Application</button>
+        <input type="text" id="name" placeholder="Full Name" required>
+
+        <input type="date" id="dob" required>
+
+        <input type="text" id="school" placeholder="Previous School">
+
+        <input type="text" id="parent" placeholder="Parent/Guardian Name">
+
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+
+        <select id="class">
+            <option value="">Select Class Applying</option>
+            <option>S1</option>
+            <option>S2</option>
+            <option>S3</option>
+            <option>S4</option>
+            <option>S5</option>
+            <option>S6</option>
+        </select>
+
+        <button type="submit" class="submit-btn">Submit Application</button>
+
     </form>
 
-    <p id="successMsg" class="success"></p>
+    <p id="successMsg"></p>
 
     <button onclick="downloadForm()" class="download-btn">
         Download Copy
     </button>
+
 </div>
 
-
-<a href="index.html">⬅ Back Home</a>
 </section>
-<a href="index.html" class="back-btn">Back</a>
-<footer>
 
+<!-- BACK BUTTON -->
+<a href="index.html" class="back-btn">Back</a>
+
+<!-- FOOTER (same as index) -->
+<footer>
 <p>© 2026 St Charles Lwanga SSS Muko</p>
 <p><i>Designed by DJ ZUBIC MAL & Tr.ALFRED NABAASA</i></p>
-
 </footer>
+
 <script src="lwanga.js"></script>
 </body>
 </html>
