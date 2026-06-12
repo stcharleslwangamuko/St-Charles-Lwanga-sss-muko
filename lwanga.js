@@ -145,3 +145,5 @@ document.addEventListener("DOMContentLoaded", function(){
     };
 
 });
+const menuBtn = document.getElementById("menuBtn");
+const navList = document.getElementById("nav-list");
