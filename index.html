@@ -10,6 +10,165 @@
 
 <link rel="stylesheet" href="lwanga.css">
 
+  <style>
+    /* ===== STAFF SECTION ===== */
+    section {
+      padding:40px 20px;
+      max-width:1200px;
+      margin:auto;
+      text-align:center;
+    }
+
+    section h2 {
+      font-size:2rem;
+      color:#004aad;
+      margin-bottom:30px;
+      position:relative;
+    }
+
+    section h2::after {
+      content:"";
+      display:block;
+      width:60px;
+      height:3px;
+      background:#FFD700;
+      margin:10px auto 0;
+      border-radius:2px;
+    }
+
+    /* ===== STAFF GRID ===== */
+    .staff-container {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr); /* two columns on desktop */
+      gap:30px;
+      justify-items:center;
+    }
+
+    .staff-card {
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      padding:20px;
+      text-align:center;
+      transition:0.3s ease;
+      width:100%;
+      max-width:350px;
+    }
+
+    .staff-card img {
+      width:150px;
+      height:150px;
+      object-fit:cover;
+      border-radius:50%;
+      margin-bottom:15px;
+      box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .staff-card p {
+      font-size:1.1rem;
+      color:#333;
+      font-weight:bold;
+    }
+
+    .staff-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    /* ===== MOBILE FRIENDLY ===== */
+    @media(max-width:768px){
+      .staff-container {
+        grid-template-columns:1fr; /* stack cards on mobile */
+      }
+    }
+    /* ===== FACILITIES SECTION ===== */
+.facilities-section {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #004aad;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #FFD700;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== GRID LAYOUT ===== */
+.facilities-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* two columns on desktop */
+  gap: 30px;
+}
+
+/* ===== FACILITY CARD ===== */
+.facility-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.facility-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.facility-card h3 {
+  color: #004aad;
+  margin-bottom: 10px;
+}
+
+.facility-card p {
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.facility-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* ===== BUTTON STYLE ===== */
+.btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #004aad;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #FFD700;
+  color: #004aad;
+}
+
+/* ===== MOBILE FRIENDLY ===== */
+@media(max-width:768px){
+  .facilities-container {
+    grid-template-columns: 1fr; /* stack cards on mobile */
+  }
+}
+  </style>
 </head>
 
 <body>
@@ -86,17 +245,29 @@
   <h2>School Vision</h2>
   <p>To be a center of excellence in education, nurturing disciplined, innovative, and responsible citizens equipped with knowledge, skills, and values for a dynamic world.</p>
 </section>
+
 <!-- STAFF -->
 <section>
   <h2>Our Staff</h2>
   <div class="staff-container">
-    <div class="staff-card"><img src="bod.webp"><p>Chairperson Board Of Governor</p></div>
-    <div class="staff-card"><img src="head.webp"><p>Head Teacher</p></div>
-    <div class="staff-card"><img src="deputy.webp"><p>Deputy Head teacher</p>
+    <div class="staff-card">
+      <img src="bod.webp" alt="Chairperson">
+      <p>Chairperson Board Of Governor</p>
     </div>
-    <div class="staff-card"><img src="non.webp"><p>Teaching staff</p>
+    <div class="staff-card">
+      <img src="hea.webp" alt="Head Teacher">
+      <p>Head Teacher</p>
+    </div>
+    <div class="staff-card">
+      <img src="deputy.webp" alt="Deputy Head Teacher">
+      <p>Deputy Head Teacher</p>
+    </div>
+    <div class="staff-card">
+      <img src="non.webp" alt="Teaching Staff">
+      <p>Teaching Staff</p>
     </div>
   </div>
+</section>
 
 <section class="about-section">
 
@@ -186,11 +357,11 @@ The school offers both science and arts combinations.</p>
     <!-- QUICK LINKS -->
     <div class="footer-box">
       <h3>Quick Links</h3>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Admissions</a>
-      <a href="#">Academics</a>
-      <a href="#">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="admission.html">Admissions</a>
+      <a href="academics.html">Academics</a>
+      <a href="contact.html">Contact</a>
     </div>
 
     <!-- DOWNLOADS -->

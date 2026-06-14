@@ -10,6 +10,70 @@
 
 <link rel="stylesheet" href="lwanga.css">
 
+  <title>Facilities & Gallery</title>
+
+  <style>
+    /* ===== FACILITIES GRID ===== */
+    .facility-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* two columns on desktop */
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .facility {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 15px;
+      transition: 0.3s ease;
+    }
+
+    .facility img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .facility:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    /* ===== GALLERY GRID ===== */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* two columns on desktop */
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    /* ===== MOBILE FRIENDLY ===== */
+    @media(max-width:768px){
+      .facility-container, .image-grid {
+        grid-template-columns: 1fr; /* stack images on small screens */
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -58,37 +122,42 @@
 </nav>
 
 </header>
-  
+
+
 <section class="facilities">
   <h2>Our Facilities</h2>
-
   <div class="facility-container">
     <div class="facility">
       <img src="scielab.webp">
       <p>Science Laboratory</p>
     </div>
-
     <div class="facility">
       <img src="picture3.jpg">
       <p>School Library</p>
     </div>
-
     <div class="facility">
       <img src="sports1.webp">
       <img src="sports2.webp">
       <p>Sports</p>
     </div>
-        <div class="facility"><img src="slide4.webp"><p>Library</p></div>
+    <div class="facility"><img src="slide4.webp"><p>Library</p></div>
     <div class="facility"><img src="slide1.webp"><p>Dormitory</p></div>
   </div>
+</section>
+
+<section class="gallery">
+  <h2>School Gallery</h2>
+  <div class="image-grid">
+    <img src="studentsasseble.webp" alt="Assembly">
+    <img src="scielab.webp" alt="Science Lab">
+    <img src="compu.webp" alt="Library">
+    <img src="sports1.webp" alt="Sports Grounds">
+    <img src="hed.webp" alt="Head Teacher">
+    <img src="bod.webp" alt="Board Chairperson">
   </div>
 </section>
 
-
-
 <a href="index.html" class="back-btn">Back</a>
-</section>
-
 <footer class="site-footer">
 
   <div class="footer-container">
@@ -96,11 +165,11 @@
     <!-- QUICK LINKS -->
     <div class="footer-box">
       <h3>Quick Links</h3>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Admissions</a>
-      <a href="#">Academics</a>
-      <a href="#">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="admission.html">Admissions</a>
+      <a href="academics.html">Academics</a>
+      <a href="contact.html">Contact</a>
     </div>
 
     <!-- DOWNLOADS -->
